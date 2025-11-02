@@ -11,11 +11,16 @@ import userRouter from './routes/userRoutes.js';
 import uploadRouter from './routes/uploadRouter.js';
 import categoryRouter from './routes/categoryRouter.js';
 import serviceRouter from './routes/serviceRouter.js';
+import job from './config/cron.js'
+
 
 dotenv.config();
 
 const PORT = process.env.PORT || 5000;
 const app = express();
+
+job.start();
+
 
 app.use(cors({
     origin: process.env.FRONTEND_URL,
